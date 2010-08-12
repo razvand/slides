@@ -43,7 +43,14 @@
 % fie folosind \frametitle
 \begin{frame}{Context}
 	\begin{itemize}		% Just like normal LaTeX
-		\item TODO
+		\item asistent universitar
+		\item Catedra de Calculatoare
+			\begin{itemize}
+				\item Facultatea de Automatică și Calculatoare
+					\begin{itemize}
+						\item Universitatea Politehnica din București
+					\end{itemize}
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -51,40 +58,423 @@
 
 \section{Administrare}
 
-\begin{frame}{TODO}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Servere}
 	\begin{itemize}
-		\item Formulă simplă
-			\begin{beamerboxesrounded}[lower=block body,shadow=true]{}
-				\texttt{\#define MAX(a, b)   ((a) > (b) ? (a) : (b))}
-			\end{beamerboxesrounded}
-		\item TODO
+		\item csr.cs.pub.ro (router), Debian (2, 0)
+		\item \textbf{mail.cs.pub.ro} (mail), Ubuntu (2, 300)
+		\item \textbf{mamba.cs.pub.ro} (HN în OpenVZ), Debian (2, 0)
+		\item \textbf{koala.cs.pub.ro} (proiecte, container), Debian (4, 35)
+		\item \textbf{swarm.cs.pub.ro} (utilizatori, container), Debian
+		(9, 200)
+		\item \textbf{elf.cs.pub.ro} (didactic, container), Debian (4, 30)
+		\item \textbf{cursuri.cs.pub.ro} (didactic), Debian (3, 50)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Servicii}
+	\begin{itemize}
+		\item Web: Apache
+		\item Mail: Postfix
+		\item SSH
+		\item LDAP: OpenLDAP (ldap.grid.pub.ro, swarm.cs.pub.ro)
+		\item Mailman
+		\item MySQL
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Servicii pentru utilizatori}
+	\begin{itemize}
+		\item wikis (DokuWiki, MediaWiki, PmWiki)
+		\item Wordpress
+		\item Planeta CS -- \url{http://planet.cs.pub.ro}
 	\end{itemize}
 \end{frame}
 
 \section{Didactic și studenți}
 
-\begin{frame}{TODO}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Legendă}
 	\begin{itemize}
-		\item TODO
-		\item TODO
+		\item privire pe ani de studiu
+		\item \textbf{Utilizarea sistemelor de operare}
+			\begin{itemize}
+				\item heavy open source connection
+			\end{itemize}
+		\item \textit{Paradigme de programare}
+			\begin{itemize}
+				\item some open source connection
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{But first \ldots Moodle}
+	\begin{itemize}
+		\item \url{http://moodle.org/} -- open-source community-based tools
+		for learning
+		\item implementat la nivelul UPB
+		\item Catedra de Calculatoare -- \url{http://curs.cs.pub.ro}
+		\item portal + utilitare de susținere a cursurilor (upload, forumuri,
+		assignments, feedback, calendar, online quizes)
+		\item majoritatea disciplinelor folosesc suportul Moodle
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Anul I}
+%	\begin{itemize}
+%		\item \textbf{Utilizarea sistemelor de operare}
+%		\item \textit{Programarea calculatoarelor}
+%		\item \textit{Structuri de date}
+%		\item \textit{Metode numerice}
+%		\item \textit{Electrotehnică}
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Anul I}
+	\begin{itemize}
+		\item \textbf{Utilizarea sistemelor de operare}
+			\begin{itemize}
+				\item introducere în SO
+				\item full-fledged Linux lab (Ubuntu)
+				\item shell, sisteme de fișiere, comenzi de bază, scripting,
+				editoare (Vim) etc.
+				\item \url{http://elf.cs.pub.ro/uso}
+				\item ``Introducere în sisteme de operare''
+				\url{http://books.google.com/books?id=_JFGzyRxQGcC}
+			\end{itemize}
+		\item \textit{Programarea calculatoarelor, Structuri de date}
+			\begin{itemize}
+				\item noțiuni de progrmare de bază -- C
+				\item Linux, GCC, Makefile, Codeblocks
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Anul I (2)}
+	\begin{itemize}
+		\item \textit{Metode numerice}
+			\begin{itemize}
+				\item calcul numeric (math stuff)
+				\item GNU Octave
+			\end{itemize}
+		\item \textit{Electrotehnică}
+			\begin{itemize}
+				\item circuite electrice
+				\item SPICE
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Anul II}
+%	\begin{itemize}
+%		\item \textbf{Protocoale de comunicație}
+%		\item \textit{Proiectarea algoritmilor}
+%		\item \textit{Paradigme de programare}
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Anul II}
+	\begin{itemize}
+		\item \textbf{Protocoale de comunicație}
+			\begin{itemize}
+				\item laborator de network/socket programming
+				\item Linux, GCC, Makefile
+				\item Wireshark, ifconfig, host
+			\end{itemize}
+		\item \textit{Proiectarea algoritmilor}
+			\begin{itemize}
+				\item algoritmi :-)
+				\item Linux, GCC, Makefile
+			\end{itemize}
+		\item \textit{Paradigme de programare}
+			\begin{itemize}
+				\item Scheme, Haskell, CLIPS, Prolog
+				\item DrScheme, GHC, SWI-Prolog
+				\item \url{http://elf.cs.pub.ro/pp/}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Anul III}
+%	\begin{itemize}
+%		\item \textbf{Rețele locale}
+%		\item \textbf{Algoritmi de prelucrare distribuită}
+%		\item \textbf{Sisteme de operare}
+%		\item \textit{Arhitectura sistemelor de calcul}
+%		\item \textit{Proiectarea cu microprocesoare}
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Anul III}
+	\begin{itemize}
+		\item \textbf{Rețele locale}
+			\begin{itemize}
+				\item network design and administration
+				\item Linux (Debian)
+				\item SSH, iptables, iproute, Apache, BIND, Postfix, Courier
+				IMAP, tcpdump
+				\item \url{http://elf.cs.pub.ro/rl}
+				\item Rețele locale --
+				\url{http://books.google.com/books?id=GdF_3ttxnRIC}
+			\end{itemize}
+		\item \textbf{Algoritmi de prelucrare distribuită}
+			\begin{itemize}
+				\item middleware tools, MPI, OpenMP, multithreaded programming
+				\item MPICH, GCC, Java
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Anul III (2)}
+	\begin{itemize}
+		\item \textbf{Sisteme de operare}
+			\begin{itemize}
+				\item system programming (Linux, Windows)
+				\item procese, fișiere, thread-uri, IPC, I/O, semnale,
+				gestiunea memoriei
+				\item Linux, Makefile, GNU Toolchain, GDB, valgrind, Cygwin
+				\item \url{http://elf.cs.pub.ro/so}
+			\end{itemize}
+		\item \textit{Arhitectura sistemelor de calcul}
+			\begin{itemize}
+				\item high performance computing
+				\item Python, GCC, Eclipse
+			\end{itemize}
+		\item \textit{Proiectarea cu microprocesoare}
+			\begin{itemize}
+				\item lipeli, lucru manual, programare de microcontrollere
+				\item AVR GCC, AVRDUDE
+				\item \url{http://elf.cs.pub.ro/pm/wiki/}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Anul IV}
+%	\begin{itemize}
+%		\item \textit{Arhitecturi paralele de calcul}
+%		\item \textit{Sisteme incorporate}
+%		\item \textbf{Sisteme de programe pentru rețele de calculatoare}
+%		\item \textbf{Compilatoare}
+%		\item \textbf{Sisteme de operare 2}
+%		\item \textit{Inteligență artificială}
+%		\item \textit{Interfețe om calculator}
+%		\item \textit{Managementul proiectelor software}
+%		\item \textit{Programare web}
+%		\item \textit{Instrumente de dezvoltare a programelor}
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Anul IV (2)}
+	\begin{itemize}
+		\item \textit{Arhitecturi paralele de calcul}
+			\begin{itemize}
+				\item programare paralelă: MPI, OpenMP, multithreaded
+				programming
+				\item Open MPI, GCC, Posix Threads
+			\end{itemize}
+		\item \textit{Sisteme incorporate}
+			\begin{itemize}
+				\item embedded programming
+				\item ATNGW100 network gateway (embedded Linux)
+				\item \url{http://elf.cs.pub.ro/si/doku.php}
+			\end{itemize}
+		\item \textbf{Sisteme de programe pentru rețele de calculatoare}
+			\begin{itemize}
+				\item middleware: CORBA, RPC, MPI
+				\item Java, Linux, GCC, MPICH
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Anul IV (3)}
+	\begin{itemize}
+		\item \textbf{Compilatoare}
+			\begin{itemize}
+				\item back-end, front-end, alocarea registrelor
+				\item ANTLR, Java
+				\item \url{http://cs.pub.ro/~cpl/}
+			\end{itemize}
+		\item \textbf{Sisteme de operare 2}
+			\begin{itemize}
+				\item kernel programming / driver development (Linux, Windows)
+				\item \url{http://elf.cs.pub.ro/so2}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Anul IV (4)}
+	\begin{itemize}
+		\item \textit{Inteligență artificială}
+			\begin{itemize}
+				\item SWI-Prolog, DrScheme
+				\item \url{http://turing.cs.pub.ro/ia_09/}
+			\end{itemize}
+		\item \textit{Interfața om calculator}
+			\begin{itemize}
+				\item crearea și popularizarea unui site (în general, se
+				pornește de la un CMS open-source)
+			\end{itemize}
+		\item \textit{Managementul proiectelor software}
+			\begin{itemize}
+				\item Redmine, Dia, Subversion, Git
+				\item \url{http://elf.cs.pub.ro/~mps/wiki/}
+			\end{itemize}
+		\item \textit{Programare web}
+			\begin{itemize}
+				\item PHP, JSP, JS, AJAX, Tomcat
+				\item \url{http://elf.cs.pub.ro/pw}
+			\end{itemize}
+		\item \textit{Instrumente de dezvoltare a programelor}
+			\begin{itemize}
+				\item Subversion, Eclipse, Java, Ant, Tomcat, Apache Axis
+				\item \url{http://elf.cs.pub.ro/idp/}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Master}
+%	\begin{itemize}
+%		\item \textbf{Planificarea și implementarea serviciilor de rețea}
+%		\item \textbf{Soluții de rețea pentru ISP-uri}
+%		\item \textit{Sisteme de operare avansate}
+%		\item \textit{Type Systems and Functional Programming}
+%		\item \textit{Distributed Algorithms}
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}{Master}
+	\begin{itemize}
+		\item \textbf{Planificarea și implementarea serviciilor de rețea}
+			\begin{itemize}
+				\item bazat pe LPIC
+				\item Linux
+				\item administarea sistemului și serviciilor: SSH, Web,
+				e-mail, database, firewalling, DNS, LDAP
+				\item \url{http://elf.cs.pub.ro/~pisr/wiki/}
+			\end{itemize}
+		\item \textbf{Soluții de rețea pentru ISP-uri}
+			\begin{itemize}
+				\item network system administration
+				\item Linux
+				\item virtualizare (OpenVZ, VMware), network monitoring,
+				Quagga, VPN, LVS, AppArmor, traffic control
+				\item \url{http://elf.cs.pub.ro/srisp/wiki/}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Master (2)}
+	\begin{itemize}
+		\item \textit{Sisteme de operare avansate}
+			\begin{itemize}
+				\item articole științifice OS/Linux-related
+				\item Redmine, Subversion/Git, \LaTeX
+				\item \url{http://elf.cs.pub.ro/~soa/wiki/}
+			\end{itemize}
+		\item \textit{Type Systems and Functional Programming}
+			\begin{itemize}
+				\item GHC (Haskell)
+			\end{itemize}
+		\item \textit{Distributed Algorithms}
+			\begin{itemize}
+				\item Linux, MPICH, various tools
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \section{Cercetare și proiecte}
 
-\begin{frame}{TODO}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Tools of trade}
 	\begin{itemize}
-		\item TODO
-		\item TODO
+		\item Git, Subversion
+		\item Redmine, Trac
+			\begin{itemize}
+				\item \url{http://koala.cs.pub.ro/redmine}
+				\item \url{http://ixlabs.cs.pub.ro/redmine}
+				\item \url{http://systems.cs.pub.ro/projects}
+				\item \url{http://ceata.org}
+				\item \url{http://rosedu.org/projects}
+			\end{itemize}
+		\item DokuWiki, MediaWiki
+		\item \LaTeX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{NCIT cluster}
+	\begin{itemize}
+		\item National Center for Information Technology
+		\item din 2006
+		\item \url{http://cluster.grid.pub.ro/}
+		\item circa 200 de sisteme
+		\item Scientific Linux, Red Hat Linux
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{P2P-Next}
+	\begin{itemize}
+		\item \url{http://www.p2p-next.org/}
+		\item din 2008
+		\item ``next generation Peer-to-Peer (P2P) content delivery platform''
+		\item ``will develop a platform that takes open source development,
+		open standards, and future proof iterative integration as key design
+		principles''
+		\item Tribler -- \url{http://www.tribler.org/trac}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Android}
+	\begin{itemize}
+		\item \url{http://cluster.grid.pub.ro/index.php/android}
+		\item din 2010
+		\item proiect de familiarizare cu platforma Android
+		\item simulatoare + Nexus One
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{IxLabs}
+	\begin{itemize}
+		\item colaborare cu Ixia
+		\item din 2006
+		\item proiecte de licență (open-source) + internship-uri
+		\item \url{http://ixlabs.cs.pub.ro/redmine/}
 	\end{itemize}
 \end{frame}
 
 \section{Altele}
 
-\begin{frame}{TODO}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{LPIC-1}
 	\begin{itemize}
-		\item TODO
-		\item TODO
+		\item curs de LPIC-1 (Linux Professional Certification)
+			\begin{itemize}
+				\item Junior Level Linux Professional
+			\end{itemize}
+		\item din octombrie 2008
+		\item urmărește programa LPIC-1 --
+		\url{http://www.lpi.org/eng/certification/the_lpic_program/lpic_1}
+		\item prin intermediul Academiei Cisco -- \url{http://ccna.ro/}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{vmchecker}
+	\begin{itemize}
+		\item verificare automată a temelor de casă
+		\item Python, Google Web Toolkit (GWT), Linux server(, VMWare Server)
+		\item Programarea algoritmilor, Sisteme de operare, Compilatoare,
+		Sisteme de operare 2
+		\item \url{http://github.com/vmchecker/vmchecker}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Organizații}
+	\begin{itemize}
+		\item Ceata -- \url{http://ceata.org}
+		\item ROSEdu -- \url{http://rosedu.org}
 	\end{itemize}
 \end{frame}
 
