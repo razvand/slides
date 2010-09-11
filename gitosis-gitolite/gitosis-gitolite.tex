@@ -1,0 +1,74 @@
+% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+\PreloadUnicodePage{200}
+
+\title[Gitosis/Gitolite]{Gitosis/Gitolite}
+\subtitle{Utilizare și internals}
+\institute{Întâlnirile lunare RLUG -- Septembrie 2010}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu\\
+	razvan@rosedu.org}
+\date{16 septembrie 2010}
+
+\begin{document}
+
+% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
+\setbeamertemplate{frametitle continuation}[from second]
+
+% Arătăm numărul frame-ului
+%\setbeamertemplate{footline}[frame number]
+
+\frame{\titlepage}
+
+% NB: Secțiunile nu sunt marcate vizual, ci doar apar în cuprins
+\section{Context}
+
+% Titlul unui frame se specifică fie în acolade, imediat după \begin{frame},
+% fie folosind \frametitle
+\begin{frame}{Context}
+	\begin{itemize}		% Just like normal LaTeX
+		\item asistent universitar
+		\item Catedra de Calculatoare
+			\begin{itemize}
+				\item Facultatea de Automatică și Calculatoare
+					\begin{itemize}
+						\item Universitatea Politehnica din București
+					\end{itemize}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\frame{\tableofcontents}
+
+\section{TODO}
+
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{TODO}
+	\begin{itemize}
+		\item aa
+		\item bbb
+	\end{itemize}
+\end{frame}
+
+\section{Întrebări}
+
+\frame{\tableofcontents[currentsection]}
+
+\end{document}
