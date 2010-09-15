@@ -45,19 +45,42 @@
 % fie folosind \frametitle
 \begin{frame}{Cluster SSH}
 	\begin{itemize}		% Just like normal LaTeX
-		\item TODO
+		\item conexiuni SSH multiple
+		\item câte o fereastră de terminal pe conexiune
+		\item o ``fereastră specială'' de comandă
+			\begin{itemize}
+				\item comenzile se execută pe toate sistemele
+				\item comenzile în ferestrele obișnuite se execută pe fiecare
+				sistem
+			\end{itemize}
+		\item execuția aceleiași comenzi pe mai multe sisteme
+		\item \texttt{apt-get install clusterssh}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Configurare}
 	\begin{itemize}
-		\item TODO
+		\item tag-based
+		\item \texttt{/etc/clusters}
+			\begin{itemize}
+				\item TODO
+			\end{itemize}
+		\item \texttt{/etc/csshrc}, \texttt{\$HOME/.csshrc}
+			\begin{itemize}
+				\item TODO
+			\end{itemize}
+		\item Cum fac eu?
+			\begin{itemize}
+				\item TODO
+			\end{itemize}
+		\item man cssh
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Utilizare}
 	\begin{itemize}
-		\item TODO
+		\item cssh s1 s2 s3
+		\item cssh tag
 	\end{itemize}
 \end{frame}
 
@@ -86,5 +109,17 @@
 \section{Întrebări}
 
 \frame{\tableofcontents[currentsection]}
+
+\begin{frame}{Resurse utile}
+	\begin{itemize}
+		\item
+		\url{http://www.debianadmin.com/ssh-on-multiple-servers-using-cluster-ssh.html}
+		\item \url{http://sourceforge.net/projects/clusterssh/}
+		\item \url{http://code.google.com/p/parallel-ssh/}
+		\item \url{http://www.linux.com/archive/articles/151340}
+		\item
+		\url{http://serverfault.com/questions/17931/what-is-a-good-modern-parallel-ssh-tool}
+	\end{itemize}
+\end{frame}
 
 \end{document}
