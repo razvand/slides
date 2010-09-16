@@ -7,7 +7,7 @@
 \usepackage{alltt}			% highlight
 
 % highlight; comment this out in case you don't input code source files
-%\usepackage{code/highlight}		% highlight
+\usepackage{code/highlight}		% highlight
 
 \usepackage{hyperref}			% folosiți \url{http://...}
 					% sau \href{http://...}{Nume Link}
@@ -63,17 +63,20 @@
 		\item tag-based
 		\item \texttt{/etc/clusters}
 			\begin{itemize}
-				\item TODO
+				\item fișier global de definire a clusterelor
+				\item \texttt{$<$tag$>$ user1@host1:port1 user2@host2:port2}
 			\end{itemize}
 		\item \texttt{/etc/csshrc}, \texttt{\$HOME/.csshrc}
 			\begin{itemize}
-				\item TODO
+				\item opțiuni de configurare
+				\item precizarea unui fișier nou pentru clustere
 			\end{itemize}
 		\item Cum fac eu?
 			\begin{itemize}
-				\item TODO
+				\item \texttt{extra\_cluster\_file=\$HOME/.clusters}
+				\item în \texttt{\$HOME/.clusters} definesc clusterele
 			\end{itemize}
-		\item man cssh
+		\item \texttt{man cssh}
 	\end{itemize}
 \end{frame}
 
@@ -90,20 +93,26 @@
 
 \begin{frame}{Parallel SSH}
 	\begin{itemize}
-		\item TODO
+		\item versiuni paralele ale
+			\begin{itemize}
+				\item ssh $\rightarrow$ parallel-ssh
+				\item scp $\rightarrow$ parallel-scp, parallel-slurp
+				\item rsync $\rightarrow$ parallel-rsync
+				\item kill $\rightarrow$ parallel-nuke
+			\end{itemize}
+		\item \texttt{apt-get install parallel-ssh}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Configurare}
 	\begin{itemize}
-		\item TODO
+		\item un fișier de configurare în care sunt precizate sistemele
+		\item format \texttt{[username@]hostname[:port]}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Utilizare}
-	\begin{itemize}
-		\item TODO
-	\end{itemize}
+	\input{code/commands}
 \end{frame}
 
 \section{Întrebări}
