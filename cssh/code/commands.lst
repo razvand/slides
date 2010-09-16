@@ -1,0 +1,5 @@
+parallel-ssh -h p2p-next-hosts -o output "hostname"
+parallel-ssh -h p2p-next-hosts -o output "ls /tmp/"
+parallel-scp -h p2p-next-hosts -e error -o output tree /tmp
+parallel-scp -h p2p-next-hosts --recursive -e error -o output tree /tmp
+parallel-slurp -h p2p-next-hosts -L slurp-out/ -r /tmp/tree my-tree
