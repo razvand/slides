@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {romanian}
+\beamer@sectionintoc {1}{Git}{3}{0}{1}
+\beamer@sectionintoc {2}{Gitolite}{10}{0}{2}
+\beamer@sectionintoc {3}{Gitweb}{13}{0}{3}
+\beamer@sectionintoc {4}{Scenarii de utilizare}{16}{0}{4}
+\beamer@sectionintoc {5}{Recomand\IeC {\u a}ri}{18}{0}{5}
+\beamer@sectionintoc {6}{\IeC {\^I}ncheiere}{21}{0}{6}
