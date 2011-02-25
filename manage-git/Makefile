@@ -1,4 +1,4 @@
-BASENAME = git-manage
+BASENAME = manage-git
 PDF = $(addsuffix .pdf, $(BASENAME))
 TEX = $(addsuffix .tex, $(BASENAME))
 PDFLATEX = pdflatex
