@@ -1,5 +1,5 @@
 TEXFILES = dot-emacs-org-mode.tex
-HIGHLIGHT_OPTS = -O latex -l -f -t 8 -S lisp -K scriptsize -c highlight.sty
+HIGHLIGHT_OPTS = -O latex -f -t 4 -S lisp -K scriptsize -c highlight.sty
 
 .PHONY: all clean
 
