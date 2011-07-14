@@ -1,0 +1,7 @@
+/*.pdf
+*.out
+*.log
+*.aux
+/texfiles/
+*~
+*swp

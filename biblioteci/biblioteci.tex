@@ -1,0 +1,337 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+% Show contents at every section beginning. Ripped off from manual.
+\AtBeginSection[] % Do nothing for \section*
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+  \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[Biblioteci]{Biblioteci. Gestiunea bibliotecilor}
+\institute{Întâlnirile lunare RLUG -- Iulie 2011}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu \\
+    razvan@rosedu.org}
+\date{14 iulie 2011}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Biblioteci}
+
+\begin{frame}{Fișiere obiect}
+  \begin{itemize}
+    \item fișiere binare
+    \item cod compilat și asamblat
+    \item format ELF, COFF, PE
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci}
+  \begin{itemize}
+    \item colecție de fișiere obiect
+    \item funcționalitățile oferite de fișierele obiect sunt disponibile în
+    bibliotecă
+    \item link-area unei biblioteci pentru obținerea unui executabil
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{De ce biblioteci?}
+  \begin{itemize}
+    \item modularizare, reutilizare
+    \item \textit{reinventing the wheel}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci statice}
+  \begin{itemize}
+    \item colecție ``dumb'' de fișiere obiect
+    \item linkarea unei biblioteci statice înseamnă adăugarea de cod
+    executabil
+    \item se adaugă întreg codul modulului obiect din care provine funcția
+    \item \texttt{ar rc libmylib.a a.o b.o c.o}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci dinamice}
+  \begin{itemize}
+    \item fișier cu format specializat în care sunt colectate fișierele obiect
+    \item deține informații suplimentare despre obiecte, simboluri, funcții
+    \item linkarea înseamnă doar marcarea unor referințe către bibliocă
+    \item încărcarea codului din cadrul bibliotecii va fi realizată ulterior
+    \item \texttt{.so} pe Unix, \texttt{.dll} pe Windows
+    \item \texttt{gcc -shared -o libmylib.so a.o b.o c.o}
+    \item fișierele obiect compilate cu \texttt{-fPIC}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci statice vs. dinamice}
+  \begin{itemize}
+    \item statice
+      \begin{itemize}
+        \item cod portabil (independent de bibliotecile sistemului)
+        \item nu există overhead la load-time sau run-time
+      \end{itemize}
+    \item dinamice
+      \begin{itemize}
+        \item dimensiune mică a executabilului
+        \item eficiență în folosirea memoriei -- bibliotecile sunt
+        ``partajate'' de mai multe procese
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci vs. headere}
+  \begin{itemize}
+    \item bibliotecile sunt colecții de fișiere obiect
+    \item headerele sunt fișiere cu extensia \texttt{.h} ce conțin
+      \begin{itemize}
+        \item declarații de funcții
+        \item macrodefiniții
+        \item definiții de structuri și tipuri de date
+      \end{itemize}
+    \item un header este inclus de un fișier C sau alt fișier header
+    \item o bibliotecă este linkată la un executabil
+    \item un header este scris de programator
+    \item o bibliotecă este obținută prin ``comasarea'' fișierelor obiect
+    \item header -- preprocesare
+    \item bibliotecă -- linking
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Analiza unei biblioteci}
+  \begin{itemize}
+    \item ldd -- listarea dependențelor pentru bibliotei dinamice
+    \item nm -- listarea simbolurilor
+    \item readelf -- citește fișierele ELF
+  \end{itemize}
+\end{frame}
+
+\section{Programatic}
+
+\begin{frame}{Linker-ul}
+  \begin{itemize}
+    \item rezolvarea simbolurilor și unirea modulelor obiect
+    \item un simbol: o variabilă, un nume de funcție
+    \item la compilare, simbolurile folosite în modul, dar nedefinite, sunt
+    marcate special (undefined)
+    \item rezolvare = descoperirea modulului în care este definit simbolurile
+    \item linker-ul este folosit pentru a obține executabile și biblioteci
+    dinamice
+    \item \texttt{LD\_FLAGS} -- flag-uri de linker
+      \begin{itemize}
+        \item \texttt{-L.} -- la linkare sunt căutate bibliotecile și în
+        directorul curent
+      \end{itemize}
+    \item \texttt{LD\_LIBS} -- biblioteci linkate
+      \begin{itemize}
+        \item \texttt{-ltorrent}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Loader-ul}
+  \begin{itemize}
+    \item încarcă programul în execuție și începe rularea procesului
+    \item load time = la execuție
+    \item loaderul are cunoștință de formatul executabilului
+    \item traduce zonele din fișierul executabil în zone de memorie
+    \item apelat prin intermediul \texttt{execve(2)}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Static linking}
+  \begin{itemize}
+    \item folosit la legarea modulelor obiect și a bibliotecilor statice
+    \item tot codul necesar este ``colectat'' în executabil
+    \item executabilul poate fi portat pe un sistem ce nu deține bibliotecile
+    folosite
+    \item se poate folosi opțiunea \texttt{-static} la gcc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Dynamic linking}
+  \begin{itemize}
+    \item folosit la legarea bibliotecilor dinamice
+    \item se adaugă puțin cod în executabil
+    \item aducerea codului necesar în memorie se realizează mai târziu
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Load time dynamic linking}
+  \begin{itemize}
+    \item codul necesar din cadrul bibliotecii este adus în memorie la load
+    time (lansarea în execuție)
+    \item se ocupă loaderul
+    \item loaderul trebuie să știe unde să caute
+      \begin{itemize}
+        \item opțiunea \texttt{-L.} este folosită la \textbf{link time} nu la
+        \textbf{load time}
+      \end{itemize}
+    \item se lansează procesul și se adaugă codul bibliotecii
+    \item dacă biblioteca există în memorie (încărcată de alt proces), atunci
+    este referită și partajată
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Run time dynamic linking}
+  \begin{itemize}
+    \item codul este adus în memorie la run time (în momentul în care procesul
+    se execută)
+    \item similaritate cu \texttt{malloc}
+    \item dezvoltatorul precizează numele bibliotecii; căutarea se face
+    similar ca la load time dynamic linking
+    \item \texttt{dlopen} \& friends
+    \item \texttt{LoadLibrary} \& friends
+    \item De ce?
+      \begin{itemize}
+        \item plugins
+        \item hooking (injection)
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LD\_PRELOAD}
+  \begin{itemize}
+    \item nume de biblioteci (\textbf{nu} căi către biblioteci) care sunt
+    încărcate înaintea altora
+    \item scenariu tipic -- hooking
+      \begin{itemize}
+        \item se creează un modul ce implementează \texttt{malloc}
+        \item se creează o bibliotecă ce conține modulul
+        \item se folosește \texttt{LD\_PRELOAD}
+        \item la un apel malloc se apelează biblioteca proprie
+        \item folosind \texttt{dlopen} \& friends se apelează \texttt{malloc}
+        din biblioteca standard C
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LD\_DEBUG}
+  \begin{itemize}
+    \item depanarea interacțiunii cu biblioteca
+    \item \texttt{export LD\_DEBUG=help}
+    \item \texttt{export LD\_DEBUG=files}
+  \end{itemize}
+\end{frame}
+
+\section{Gestiunea bibliotecilor}
+
+\begin{frame}{Biblioteci statice}
+  \begin{itemize}
+    \item se păstrează în directoare standard (\texttt{/usr/lib},
+    \texttt{/lib})
+    \item altfel, se precizează la link time calea către bibliotecă
+    (\texttt{LD\_FLAGS}, \texttt{-L.})
+    \item nu este nevoie de un management specializat
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Biblioteci dinamice}
+  \begin{itemize}
+    \item rezolvarea referințelor se face la link time, fără a încărca bucăți
+    de cod în fișierul executabil
+    \item calea către biblioteci trebuie rezolvată la load time (sau run time)
+    \item trebuie configurat loader-ul, care nu este apelat explicit de
+    utilizator (este apelat prin intermediul \texttt{execve})
+    \item \texttt{man ld.so}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What is this?}
+  \begin{itemize}
+    \item \texttt{ld.so}
+    \item \texttt{ld-linux.so}
+    \item \texttt{/etc/ld.so.conf}
+    \item \texttt{/etc/ld.so.conf.d/}
+    \item \texttt{/etc/ld.so.cache}
+    \item \texttt{/etc/ld.so.preload}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LD\_LIBRARY\_PATH}
+  \begin{itemize}
+    \item precizează căi suplimentare unde să fie căutate bibliotecile
+    dinamice
+    \item similar cu \texttt{PATH} -- separație prin caracterul ``două
+    puncte''/``colon'' (\texttt{:})
+    \item \texttt{LD\_LIBRARY\_PATH=. ./exec}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ldconfig}
+  \begin{itemize}
+    \item controlează cache-ul de de biblioteci dinamice
+    \item cache-ul este stocat în fișierul \texttt{/etc/ld.so.cache}
+    \item loader-ul caută bibliotecile urmând un set de pași dați (\texttt{man
+    ld.so})
+    \item înainte de a căuta în directoarele implicite (\texttt{/lib},
+    \texttt{/usr/lib}), va căuta în cache -- viteză sporită
+    \item \texttt{ldconfig} este apelat în general la instalarea de aplicații
+    de sistemul de gestiune a pachetelor (\texttt{apt}, \texttt{yum})
+    \item \texttt{ldconfig -p}
+    \item \texttt{ldconfig -n .}
+  \end{itemize}
+\end{frame}
+
+\section{Întrebări}
+
+\begin{frame}{Resurse utile}
+  \begin{itemize}
+    \item \url{http://www.dwheeler.com/program-library/}
+    \item MSDNAA -- Dynamic Link Libraries --
+    \url{http://msdn.microsoft.com/en-us/library/ms682589(v=VS.85).aspx}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Keywords}
+  \begin{columns}
+    \begin{column}[l]{0.5\textwidth}
+      \begin{itemize}
+        \item fișiere obiect
+        \item biblioteci
+        \item biblioteci statice
+        \item biblioteci dinamice
+        \item \texttt{-fPIC}
+        \item header
+        \item linker
+        \item loader
+      \end{itemize}
+    \end{column}
+    \begin{column}[l]{0.5\textwidth}
+      \begin{itemize}
+        \item \texttt{ld.so}
+        \item run-time
+        \item load-time
+        \item \texttt{LD\_PRELOAD}
+        \item \texttt{LD\_DEBUG}
+        \item \texttt{LD\_LIBRARY\_PATH}
+        \item \texttt{/etc/ld.*}
+        \item \texttt{ldconfig}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}
