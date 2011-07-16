@@ -214,8 +214,11 @@
 
 \begin{frame}{LD\_PRELOAD}
   \begin{itemize}
-    \item nume de biblioteci (\textbf{nu} căi către biblioteci) care sunt
-    încărcate înaintea altora
+    \item nume de fișiere de tip bibliotecă ce sunt încărcate înaintea altora
+      \begin{itemize}
+        \item \textbf{nu} căi către directoare cu biblioteci (cum se întâmplă
+        la \texttt{LD\_LIBRARY\_PATH}
+      \end{itemize}
     \item scenariu tipic -- hooking
       \begin{itemize}
         \item se creează un modul ce implementează \texttt{malloc}
