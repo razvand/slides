@@ -1,0 +1,124 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+% Show contents at every section beginning. Ripped off from manual.
+\AtBeginSection[] % Do nothing for \section*
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+  \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[Task Management]{Task Management for the Daily Workaholic}
+\institute{Întâlnirile lunare RLUG -- August 2011}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu \\
+    razvan@rosedu.org}
+\date{11 august 2011}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Pentru task-uri proprii: Keep It Simple}
+  \begin{itemize}
+    \item \textbf{(OK) task: ceva de făcut (TODO)}
+    \item (Not OK) task: ceva de făcut, deadline, prioritate, resurse folosite,
+    proiect în care se încadrează, persoane implicate, legătură cu alte task-uri
+    \item Atenție la PIMs, issue trackers, GTD-compliant apps
+      \begin{itemize}
+        \item consumi timp ca să te organizezi
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Task-uri ``imediate'' vs. task-uri ``amânabile''}
+  \begin{itemize}
+    \item \textbf{task-urile imediate trebuie avute în permanență în prim plan}
+      \begin{itemize}
+        \item foaie de hârtie
+        \item sticky notes
+        \item fișier text
+        \item știi ce ai de făcut, nu e nevoie de detalii (fără priorități,
+        deadline, proiecte legate, rezultate)
+      \end{itemize}
+    \item task-urile amânabile pot fi trecute într-un sistem mai ``complex''
+      \begin{itemize}
+        \item org-mode
+        \item Taskwarrior
+        \item GTD-compliant
+        \item nu trebuie consultate în permanență, pot să nu fie imediat
+        accesibile
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Deadline-uri}
+  \begin{itemize}
+    \item Douglas Adams Quotes -- \textit{I love deadlines. I like the
+    whooshing sound they make as they fly by.}
+    \item deadline-urile sunt importante, dar nu atât de importante; mai
+    degrabă orientative
+    \item o planificare bună înseamnă mai mult decât deadline-uri
+    \item deadline-uri realiste, planificare riguroasă, versiuni draft,
+    remindere
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ca să nu uiți}
+  \begin{itemize}
+    \item ``trebuie să fac asta, dar sunt prins'' sau ``ar fi bine să fac
+    asta'' sau ``n-ar strica așa ceva'' -- \textbf{note it down}
+    \item fă o listă cu ceea ce ai vrea să faci și ce probleme ai întâlnit și
+    nu poți aloca timp să le faci pe moment
+    \item când prinzi timp (tren, metrou, nu ai curent, nu ai Internet)
+    gândește-te la ce ai de făcut, ce ar fi bine să faci și scrie-le undeva
+    \item începe ziua cu lista de task-uri, încheie ziua cu ce ai făcut
+      \begin{itemize}
+        \item Today was a good day for \ldots (insert random word here)!
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Când lucrezi cu alții}
+  \begin{itemize}
+    \item mai mult de muncă
+    \item \textbf{descriere clară a task-ului (ce? cum?)}
+    \item recomandare resurse, link-uri etc.
+    \item descriere clară a interacțiunii cu alt task-uri și activități (de
+    unde iau input? unde dau output?)
+    \item deadline -- orientativ, ca să pui presiune; eventual versiune draft
+    \item buzz înainte de deadline (reminder)
+    \item notificare automată la creare, update, apropierea deadline-ului
+    \item folosire aplicație dedicată (assigned task, issue tracker etc.)
+    \item monitorizare: \% done, status
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Resurse utile (?)}
+  \begin{itemize}
+    \item David Allen -- Getting Things Done
+    \item \url{http://lifehacker.com/}
+    \item \url{http://www.thesimpledollar.com/}
+  \end{itemize}
+\end{frame}
+
+\end{document}
