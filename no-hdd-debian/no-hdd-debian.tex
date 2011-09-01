@@ -1,0 +1,87 @@
+% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini.
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[No HDD Debian]{Debian pe un laptop fără HDD}
+\subtitle{Lightning talk}
+\institute{Întâlnirile lunare RLUG -- Septembrie 2011}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu\\
+      razvan@rosedu.org}
+\date{8 septembrie 2011}
+
+\begin{document}
+
+% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
+\setbeamertemplate{frametitle continuation}[from second]
+
+\frame{\titlepage}
+
+% Titlul unui frame se specifică fie în acolade, imediat după \begin{frame},
+% fie folosind \frametitle
+\begin{frame}{Introducere}
+  \begin{itemize}     % Just like normal LaTeX
+    \item erori de kernel (hard disk)
+    \item am făcut backup la ce era necesar
+    \item am reinstalat
+    \item a rămas blocat la installing GRUB
+    \item apăreau erori de kernel în consolă
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Live CD}
+  \begin{itemize}
+    \item nu mi-a plăcut interfața Unity de la Ubuntu
+    \item am scris un stick cu Debian Live
+    \item din fericire am avut cheia privată (cu passphrase) pe un stick
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Problema}
+  \begin{itemize}
+    \item nu era desktop-ul meu
+    \item configurări de GUI, shortcuts, no blinking cursor, alias-uri, vimrc
+    \item dura circa 15 minute să le configurez
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Script de ``inițializare''}
+  \begin{itemize}
+    \item \texttt{cloud-os-setup}
+    \item
+    \url{http://swarm.cs.pub.ro/gitweb/?p=razvan-code.git;a=blob;f=debian/cloud-os-setup;hb=HEAD}
+    \item configurări
+      \begin{itemize}
+        \item obținere chei SSH
+        \item Vim, Emacs, Git
+        \item \texttt{LC\_COLLATE}, \texttt{CDPATH}
+        \item configurări GNOME -- \texttt{gconftool-2} rocks
+          \begin{itemize}
+            \item keyboard shortcuts
+            \item hide panels
+            \item minimal GNOME Terminal
+            \item no blinking cursor
+          \end{itemize}
+        \item \texttt{$\sim$/.bash\_aliases}, \texttt{$\sim$/.inputrc}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}
