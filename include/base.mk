@@ -2,12 +2,14 @@ PDF = $(addsuffix .pdf, $(BASENAME))
 TEX = $(addsuffix .tex, $(BASENAME))
 PDFLATEX = pdflatex
 OUT_DIR = texfiles
+HIGHLIGHT_DIR = code
 
 .PHONY: clean all
 
 all: $(PDF)
 
 $(PDF): $(TEX)
+	-test -d $(HIGHLIGHT_DIR) && make -C $(HIGHLIGHT_DIR)
 	-test -d $(OUT_DIR) || mkdir $(OUT_DIR)
 	# Twice, so TOC is also updated
 	$(PDFLATEX) -output-directory $(OUT_DIR) $<
