@@ -1,0 +1,105 @@
+% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini.
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[rss2email]{rss2email}
+\subtitle{Lightning talk}
+\institute{Întâlnirile lunare RLUG -- Septembrie 2011}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu\\
+      razvan@rosedu.org}
+\date{8 septembrie 2011}
+
+\begin{document}
+
+% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
+\setbeamertemplate{frametitle continuation}[from second]
+
+\frame{\titlepage}
+
+% Titlul unui frame se specifică fie în acolade, imediat după \begin{frame},
+% fie folosind \frametitle
+\begin{frame}{Contextul}
+  \begin{itemize}     % Just like normal LaTeX
+    \item folosesc feed-uri pentru notificări (wiki-uri, Redmine)
+    \item Liferea are probleme cu HTTPS (probabil plus SNI)
+    \item dat e-mail pe lista de devel de la Liferea, nu am primit răspuns
+    \item pluginul de feed de la Evolution nu merge
+    \item prefer să folosesc o aplicație (clientul de e-mail) pentru mai multe
+    ``task-uri'': e-mail, calendaring, feed notification
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Soluția: rss2email}
+  \begin{itemize}
+    \item convertește notificările RSS/Atom în email-uri
+    \item ușor de instalat
+    \item configurare rapidă
+    \item îl configurezi pe un server și de acolo îți trimite mesaje
+      \begin{itemize}
+        \item nu e nevoie de configurare pe client și, apoi, reconfigurare, pe
+        alt client
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Instalare și utilizare}
+  \begin{itemize}
+    \item instalare pe un server stabil
+    \item \texttt{apt-get install rss2email}
+    \item \texttt{r2e} (fără argumente afișează ecran de ajutor)
+    \item \texttt{r2e new razvan@rosedu.org}
+    \item \texttt{r2e add
+    '\url{http://lif.rosedu.org/wiki/feed.php?linkto=diff\&content=diff\&mode=recent}'}
+      \begin{itemize}
+        \item Atenție la ampersand!
+      \end{itemize}
+    \item \texttt{r2e run --no-send} (verificare feed-uri)
+    \item \texttt{r2e list}
+    \item \texttt{r2e delete 7}
+    \item intrare în crontab
+      \begin{itemize}
+        \item \texttt{0 * * * * /usr/bin/r2e run $>$ /dev/null 2$>$\&1}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Configurare}
+  \begin{itemize}
+    \item \texttt{cp /usr/share/doc/rss2email/examples/config.py
+    $\sim$/.rss2email/config.py}
+    \item \texttt{DEFAULT\_FROM = "rss2email-noreply@swarm.cs.pub.ro"}
+    \item \texttt{SMTP\_SERVER = "localhost:25"}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{``Personalizare''}
+  \begin{itemize}
+    \item \texttt{DATE\_HEADER = 1}
+    \item \texttt{FORCE\_FROM = 0}
+    \item \texttt{BONUS\_HEADER = '\textbackslash{}nX-feed:
+    rss2email-noreply@swarm.cs.pub.ro'}
+      \begin{itemize}
+        \item plus filtru în MDA sau clientul de e-mail
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}
