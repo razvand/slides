@@ -1,0 +1,112 @@
+% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini.
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[CSE Tools]{Catedra de Calculatoare -- Resurse electronice}
+\subtitle{Wiki, Redmine, Mail, Calendar}
+\institute{Catedra de Calculatoare}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu\\
+      razvan.deaconescu@cs.pub.ro}
+\date{6 octombrie 2011}
+
+\begin{document}
+
+% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
+\setbeamertemplate{frametitle continuation}[from second]
+
+\frame{\titlepage}
+
+\begin{frame}{Conținut}
+  \begin{itemize}
+    \item LDAP cs.curs.pub.ro
+    \item Wiki -- informare
+    \item Redmine -- coordonare internă
+    \item E-mail
+    \item Calendar
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LDAP cs.curs.pub.ro}
+  \begin{itemize}
+    \item folosit pentru autentificare unică la diverse resurse
+    \item contact pentru configurare: Răzvan Deaconescu / Alex Herișanu
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Wiki}
+  \begin{itemize}
+    \item \url{http://wiki.cs.pub.ro}
+    \item informare internă și externă
+    \item autentificare folosind LDAP cs.curs.pub.ro
+    \item namespace pentru studenți (public)
+    \item restul namespace-urilor sunt interne
+    \item folosit, pe moment, și pentru organizare
+    \item RSS feed pentru paginile publice
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Redmine}
+  \begin{itemize}
+    \item \url{http://org.cs.pub.ro/}
+    \item autentificare folosind LDAP cs.curs.pub.ro
+    \item organizare internă
+    \item wiki, tichete, forumuri, news
+    \item diagramă Gantt, calendar de task-uri
+    \item Atom feed
+    \item plugin-uri: Doodle, issue notification
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Zimbra}
+  \begin{itemize}
+    \item \url{http://mail.cs.pub.ro/}
+    \item autentificare dedicată
+    \item mail, calendar, contacte, task-uri
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{E-mail}
+  \begin{itemize}
+    \item server IMAPS/POP3S/SMTP: mail.cs.pub.ro
+    \item forwarding, filtre
+    \item schimbare parolă
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Calendar}
+  \begin{itemize}
+    \item calendar personal
+    \item adăugare/ștergere de calendare
+    \item sharing, drepturi de acces
+    \item import/export, publicare
+    \item integrare clienți e-mail, calendar, integrare Google Calendar
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Q\&A}
+  \begin{itemize}
+    \item întrebări
+    \item propuneri
+    \item solicitări
+  \end{itemize}
+\end{frame}
+
+\end{document}
