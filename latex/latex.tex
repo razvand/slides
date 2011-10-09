@@ -1,0 +1,64 @@
+% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}		% diacritice
+\usepackage[romanian]{babel}
+\usepackage{color}			% highlight
+\usepackage{alltt}			% highlight
+
+% highlight; comment this out in case you don't input code source files
+%\usepackage{code/highlight}		% highlight
+
+\usepackage{hyperref}			% folosiți \url{http://...}
+					% sau \href{http://...}{Nume Link}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
+% Încărcăm simbolurilor Unicode românești în titlu și primele pagini.
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[\LaTeX]{De ce \LaTeX?}
+\subtitle{Rival Ideas}
+\institute{ROSEdu/ACS}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu\\
+      razvan.deaconescu@cs.pub.ro}
+\date{9 octombrie 2011}
+
+\begin{document}
+
+% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
+\setbeamertemplate{frametitle continuation}[from second]
+
+\frame{\titlepage}
+
+\begin{frame}{De ce \LaTeX?}
+  \begin{itemize}
+    \pause \item folosești editorul preferat
+    \pause \item repository
+    \pause \item text (grep, sed etc.), automatizare/scripting
+    \pause \item scalabil (include) (500 pagini în \LaTeX -- ușor)
+    \pause \item low-memory footprint
+    \pause \item portabil
+    \pause \item moca
+    \pause \item typesetting (formule matematice)
+    \pause \item extensibil (module diverse) -- \url{http://www.ctan.org}
+    \pause \item documentație pe tot Internet-ul
+    \pause \item Donald Knuth
+    \pause \item professional crowd (the cool stuff)
+    \pause \item ``why \LaTeX'' pe Google
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Q\&A}
+  \begin{itemize}
+    \item întrebări
+    \item curiozități
+    \item laude
+    \item hip-hip for the coolness factor
+  \end{itemize}
+\end{frame}
+
+\end{document}
