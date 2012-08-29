@@ -17,7 +17,7 @@
 
 \title[Gestiunea laboratorului]{Soluții open-source pentru gestiunea sălilor
 de laborator}
-\institute{Informatica la Castel}
+\institute{Informatica la Castel (Macea, Arad)}
 \author[Răzvan Deaconescu]{Răzvan Deaconescu \\
 razvan.deaconescu@cs.pub.ro}
 \date{29 august 2012}
@@ -29,7 +29,7 @@ razvan.deaconescu@cs.pub.ro}
 \begin{frame}{Context}
   \begin{itemize}
     \item Facultatea de Automatică și Calculatoare, Departamentul de
-      Calculataore
+      Calculatoare
     \item 350 de studenți pe an, 3 serii de studenți pe an, 5 grupe pe serie,
       2 semigrupe pe grupă
     \item săli de laborator cu 10-18 sisteme de calcul (PC)
@@ -81,7 +81,8 @@ razvan.deaconescu@cs.pub.ro}
     \item sunt selectate opțiunile de configurare a rețelei (DHCP sau static)
     \item se selectează partiția sau discul care să fie clonat(ă)
     \item se selectează forma de comprimare (recomandat lzop)
-    \item se selectează \textbf{un} \textit{sender} și restul \textbf{receiveri}
+    \item se selectează \textbf{un} \textit{sender} și restul
+      \textit{receiveri}
     \item se realizează decuplarea rețelei de la restul rețelei mari
       (multicast înseamnă \ldots multicast)
     \item se declanșează transferul
@@ -100,15 +101,11 @@ razvan.deaconescu@cs.pub.ro}
       \begin{itemize}
         \item \texttt{dd if=/dev/zero of=zero-fill.tmp bs=8M}
         \item \texttt{sync}
-        \item \texttt{rm zero-fill}
+        \item \texttt{rm zero-fill.tmp}
       \end{itemize}
     \item imaginea de kernel și cea de ramdisk pot fi copiate locale și apoi
       se poate boota folosind GRUB (fără a fi nevoie de un dispozitiv de boot
       -- CD-ROM sau USB stick)
-      \begin{itemize}
-        \item
-          \url{https://koala.cs.pub.ro/gitweb/?p=systems/lab-infrastructure.git;a=blob;f=udpcast/install-udpcast;hb=HEAD}
-      \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -128,7 +125,7 @@ razvan.deaconescu@cs.pub.ro}
   \begin{itemize}
     \item ,,freezing-ul'' discului sau partiției $\rightarrow$ toate
       modificările se vor dispune altundeva
-    \item Există ceva existent? La momentul respectiv (2007), exista
+    \item Există ceva existent? La momentul respectiv (2007) exista
       DeepFreeze.
       \begin{itemize}
         \item nu are suport bun pe Linux (acum deloc)
@@ -161,14 +158,55 @@ razvan.deaconescu@cs.pub.ro}
 \begin{frame}{aufs}
   \begin{itemize}
     \item folosit în distribuțiile Live
-    \item union mount -- de obicei un sistem de fișiere montat read-only
-      și celălalt montat read-write
+    \item \textit{union mount} -- de obicei un sistem de fișiere montat
+      read-only și celălalt montat read-write
+    \item modul de kernel: \texttt{sudo modprobe aufs}
+    \item pachetul \texttt{aufs-tools}: \texttt{mount.aufs},
+      \texttt{umount.aufs}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Pași în folosirea scriptului \texttt{sysufs}}
   \begin{itemize}
-    \item TODO
+    \item se creează o partiție dedicată pentru ,,backup'' de dimensiune
+      similară celei care se dorește ,,freez-uite''
+    \item se actualizează scriptul \texttt{sysufs}: variabila
+      \texttt{UNFROZEN\_DISK}
+    \item se rulează scriptul pentru testare; dacă merge bine, apare aufs la
+      listarea cu \texttt{mount}
+    \item la repornirea sistemului, partițiile sunt ,,freezed''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Cum se face unfreeze?}
+  \begin{itemize}
+    \item se adaugă opțiunea \texttt{nofreeze} în linia de boot pentru Linux
+      în GRUB
+    \item linia de boot apare în \texttt{/proc/cmdline}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternative}
+  \begin{itemize}
+    \item Lethe
+    \item FSProtect
+    \item LinFreeze
+    \item tot scripturi shell care folosesc aufs
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Concluzie}
+  \begin{itemize}
+    \item multe săli, multe sisteme, mulți studenți
+    \item Linux la bază
+    \item soluții duplicare/clonare rapidă și freezing
+    \item UDPcast și aufs
+    \item repository pentru infrastructură: \url{http://koala.cs.pub.ro/gitweb/?p=systems/lab-infrastructure.git;a=summary}
+      \begin{itemize}
+        \item Tavi Purdilă (UDPcast), Mircea Bardac/Vlad Ureche (aufs)
+        \item Vlad Ureche, George Milescu, Alex Juncu, Octavian Voicu, Andrei
+          Voinescu, Răzvan Deaconescu
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
