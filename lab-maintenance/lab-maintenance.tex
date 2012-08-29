@@ -1,0 +1,197 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[romanian]{babel}
+\usepackage{color}
+\usepackage{alltt}
+
+%\usepackage{code/highlight}
+
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\mode<presentation>
+{ \usetheme{Berlin} }
+
+\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+
+\title[Gestiunea laboratorului]{Soluții open-source pentru gestiunea sălilor
+de laborator}
+\institute{Informatica la Castel}
+\author[Răzvan Deaconescu]{Răzvan Deaconescu \\
+razvan.deaconescu@cs.pub.ro}
+\date{29 august 2012}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Context}
+  \begin{itemize}
+    \item Facultatea de Automatică și Calculatoare, Departamentul de
+      Calculataore
+    \item 350 de studenți pe an, 3 serii de studenți pe an, 5 grupe pe serie,
+      2 semigrupe pe grupă
+    \item săli de laborator cu 10-18 sisteme de calcul (PC)
+    \item în jur de 15 săli de laborator
+    \item Linux folosit în sălile de laborator
+    \item sesiuni de laborator a câte 2 ore
+    \item în cazul unei alocări complete a unui an de studiu pe sală de
+      laborator, este ocupată complet 8-20 în fiecare zi
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Probleme și motivație (partea 1)}
+  \begin{itemize}
+    \item număr mare de sisteme care trebuie instalate în fiecare semestru
+    \item se întâmplă să fie nevoie de actualizare pe toate sistemele
+    \item în caz de examen de test practic la anumite discipline (USO, RL)
+      este nevoie de instalarea aceleiași imagini în 4 săli (circa 80 de
+      sisteme)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Soluție (partea 1)}
+  \begin{itemize}
+    \item clonarea discului
+    \item folosirea rețelei locale
+    \item un sistem este sursa de clonare iar celelalte sunt destinația
+    \item \textit{along comes UDPcast}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{UDPcast}
+  \begin{itemize}
+    \item imagine bootabilă personalizată de Linux
+      \begin{itemize}
+        \item \url{http://www.udpcast.linux.lu/}
+      \end{itemize}
+    \item un soi de \texttt{dd} în rețea
+    \item permite configurarea unui \textit{sender/seeder} și a mai multor
+      \textit{receiveri} în rețea
+    \item folosește UDP și multicast pentru transferul informației
+    \item permite transferului unui disc sau a unei partiții
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Scenariu tipic de utilizare}
+  \begin{itemize}
+    \item se bootează de pe CD sau USB stick toate sistemele dorite din
+      laborator (în general, se recomandă să fie identice)
+    \item sunt selectate opțiunile de configurare a rețelei (DHCP sau static)
+    \item se selectează partiția sau discul care să fie clonat(ă)
+    \item se selectează forma de comprimare (recomandat lzop)
+    \item se selectează \textbf{un} \textit{sender} și restul \textbf{receiveri}
+    \item se realizează decuplarea rețelei de la restul rețelei mari
+      (multicast înseamnă \ldots multicast)
+    \item se declanșează transferul
+    \item dacă totul merge bine se copiază datele cu viteza de circa 100Mbps
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bine de știut}
+  \begin{itemize}
+    \item se poate face fără probleme transferul de la un disc mai mic la un
+      disc mai mare
+    \item se poate face transferul de la un disc mai mare la unul mai mic doar
+      dacă datele nu depășesc discul mai mic
+    \item înainte de UDPcast, se recomandă folosirea \textit{zero fill} pe
+      discul/partițiile de clonat pentru a mări viteza
+      \begin{itemize}
+        \item \texttt{dd if=/dev/zero of=zero-fill.tmp bs=8M}
+        \item \texttt{sync}
+        \item \texttt{rm zero-fill}
+      \end{itemize}
+    \item imaginea de kernel și cea de ramdisk pot fi copiate locale și apoi
+      se poate boota folosind GRUB (fără a fi nevoie de un dispozitiv de boot
+      -- CD-ROM sau USB stick)
+      \begin{itemize}
+        \item
+          \url{https://koala.cs.pub.ro/gitweb/?p=systems/lab-infrastructure.git;a=blob;f=udpcast/install-udpcast;hb=HEAD}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Probleme și motivație (partea a 2-a)}
+  \begin{itemize}
+    \item în cadrul fiecărei sesiuni de laborator se fac modificări
+    \item unele laboratoare fac modificări la nivel de root (configurare
+      servicii, configurare utilizatori)
+    \item în cazul testelor practice, o nouă sesiune trebuie să găsească
+      sistemul ,,curat''
+    \item este recomandat (uneori obligatoriu) să nu fie vizibile modificările
+      utilizatorilor
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Soluție (partea a 2-a)}
+  \begin{itemize}
+    \item ,,freezing-ul'' discului sau partiției $\rightarrow$ toate
+      modificările se vor dispune altundeva
+    \item Există ceva existent? La momentul respectiv (2007), exista
+      DeepFreeze.
+      \begin{itemize}
+        \item nu are suport bun pe Linux (acum deloc)
+        \item este proprietar
+      \end{itemize}
+    \item Vlad Ureche \& Mircea Bardac to the rescue
+      \begin{itemize}
+        \item folosire unionfs și, mai târziu, aufs
+        \item configurare în așa fel încât la repornire, sistemul de fișiere
+          revine (în majoritate) la starea inițială
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Cum se configurează?}
+  \begin{itemize}
+    \item e nevoie de o partiție suplimentară pentru ,,backup-ul'' fiecărei
+      partiții folosite
+      \begin{itemize}
+        \item ,,backup'' $\rightarrow$ zona în care se stochează modificările
+      \end{itemize}
+    \item scriptul \texttt{sysufs} este copiat în sistemul local de fișiere și
+      apoi configurat să ruleze din \texttt{/etc/rc.local}
+      \begin{itemize}
+        \item \url{https://koala.cs.pub.ro/gitweb/?p=systems/lab-infrastructure.git;a=tree;f=freeze;hb=HEAD}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{aufs}
+  \begin{itemize}
+    \item folosit în distribuțiile Live
+    \item union mount -- de obicei un sistem de fișiere montat read-only
+      și celălalt montat read-write
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pași în folosirea scriptului \texttt{sysufs}}
+  \begin{itemize}
+    \item TODO
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Efecte ,,secundare''}
+  \begin{itemize}
+    \item experiență legată de scripturile de inițializare
+      (\textit{/etc/init.d})
+    \item site-ul UDPcast nu mai este accesibil din rețeaua UPB
+    \item totul este o partiție
+    \item plăcile grafice \ldots NU
+    \item porturile USB \ldots NU
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Resurse utile}
+  \begin{itemize}
+    \item lab-infrastructure.git --
+      \url{http://koala.cs.pub.ro/gitweb/?p=systems/lab-infrastructure.git;a=summary}
+    \item UDP Cast -- \url{http://udpcast.linux.lu/}
+    \item Clonezilla -- \url{http://www.clonezilla.org/}
+    \item aufs -- \url{http://aufs.sourceforge.net/}
+    \item DeepFreeze -- \url{http://www.faronics.com/enterprise/deep-freeze/}
+  \end{itemize}
+\end{frame}
+
+\end{document}
