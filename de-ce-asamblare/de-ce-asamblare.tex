@@ -30,112 +30,95 @@ razvan.deaconescu@cs.pub.ro}
 
 \frame{\titlepage}
 
-\begin{frame}{Exemplu de atac de securitate}
+\begin{frame}{Exemple din securitatea ofensivă}
   \begin{itemize}
-    \item TODO
+    \pause \item \textit{offensive security}
+    \pause \item serviciu de tip \textit{hello} configurat pe mașina virtuală
+    \pause \item \href{http://phrack.org/issues/49/14.html}{Smashing the Stack for Fun and Profit} (aleph1)
+    \pause \item \url{https://www.exploit-db.com/local/}
+    \pause \item \url{https://www.exploit-db.com/shellcode/}
+    \pause \item \url{https://www.exploit-db.com/docs/39665.pdf}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Nevoia de optimizare}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Implementare \texttt{memcpy}}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
+  \centering
+  \textit{\href{http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast}{Make it work. Make it right. Make it fast.}} \\
+  \vspace{3mm}
+  \hfill \textit{Kent Beck} \\
+  \vspace{1cm}
+  \footnotesize{\url{http://osxr.org:8080/glibc/source/sysdeps/x86/bits/string.h}}
 \end{frame}
 
 \begin{frame}{Nevoia de debugging}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
+  \centering
+  \pause printf debugging\\
+  \pause valori variabile\\
+  \pause funcții apelate (fluxul programului)\\
+  \pause \textbf{valori din memorie}\\
+  \pause \textbf{valorile registrelor procesorului}\\
+  \pause \textbf{codul în limbaj de asamblare}\\
 \end{frame}
 
 \begin{frame}{Dezvoltare low-level}
   \begin{itemize}
-    \pause \item sisteme embedded / mobile
-    \pause \item Board Support Package: bootloader, kernel, drivere
-    \pause \item kernel development
+    \pause \item sisteme încoporate (\textit{embedded systems})
+      \begin{itemize}
+        \pause \item \textit{Board Support Package}: bootloader, kernel, drivere
+      \end{itemize}
+    \pause \item software de sistem (\textit{system software})
+    \pause \item dezvoltare de kernel (\textit{kernel development})
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Înțelegerea sistemului}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
+\begin{frame}{Înțelegerea sistemului de calcul}
+  \centering
+  \pause De ce învață oamenii obișnuiți să cânte la instrumente muzicale? \\
+  \pause De ce fac oamenii obișnuiți sport în mod activ? \\
+  \pause De ce le place oamenilor (în special copiilor) să demonteze lucruri? \\
+  \vspace{5mm}
+  \pause \textbf{Mastery}, Autonomy and Purpose (Dan Pink: Drive)\\
+  \vspace{5mm}
+  \pause curiozitate și expertiză
 \end{frame}
 
 \begin{frame}{John ``maddog'' Hall: The Third Language}
   \begin{itemize}
-    \item \url{https://www.lpi.org/the-third-language/}
-    \item \url{http://www.techworld.com/operating-systems/john-maddog-hall-why-raspberry-pi-is-only-beginning-3453073/2/}
+    \item \footnotesize{\url{https://www.lpi.org/the-third-language/}}
+    \item \footnotesize{\url{http://www.techworld.com/operating-systems/john-maddog-hall-why-raspberry-pi-is-only-beginning-3453073/2/}}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Joel Spolsky: Law of Leaky Abstractions}
   \begin{itemize}
-    \item \url{http://www.joelonsoftware.com/articles/LeakyAbstractions.html}
+    \item \footnotesize{\url{http://www.joelonsoftware.com/articles/LeakyAbstractions.html}}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Parcurgerea unei matrice}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
+  \centering
+  Demo
 \end{frame}
 
 \begin{frame}{Shlemiel the Painter's Algorithm}
   \begin{itemize}
-    \item Joel Spolsky: Back to Basics: \url{http://www.joelonsoftware.com/articles/fog0000000319.html}
+    \item Joel Spolsky: Back to Basics
+      \begin{itemize}
+        \item \footnotesize{\url{http://www.joelonsoftware.com/articles/fog0000000319.html}}
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Înainte de a începe}
-  \begin{itemize}
-    \item mai des citire decât scriere
-  \end{itemize}
+  \centering
+  \pause mai mult citim decât scriem \\
+  \pause ca să scrii povești bune trebuie să citești povești bune \\
+  \pause ca să scrii cod bun trebuie să citești cod bun \\
+  \pause mai mult ca orice, limbajul de asamblare mai mult se citește \\
+  \vspace{1cm}
+  \pause \textbf{Învățăm limbaj de asamblare ca să înțelegem, mult mai rar să scriem.} \\
+  \hfill \textit{R. Deaconescu, 2016, Macea, Arad}
 \end{frame}
-
-\begin{frame}{Funcționarea unității de calcul}
-  \begin{itemize}
-    \item TODO
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Compiler Explorer}
-  \begin{itemize}
-    \item \url{https://gcc.godbolt.org/}
-  \end{itemize}
-\end{frame}
-
-%\begin{frame}{Experimentul cu maimuțele}
-%  \begin{figure}
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{img/monkey-experiment}
-%  \end{figure}
-%  \begin{center}
-%    \tiny
-%    \url{http://9gag.com/gag/aA1Z16o/curious-monkey-experiment-are-you-a-blind-follower}
-%  \end{center}
-%\end{frame}
-
-%\begin{frame}{It's all about the money}
-%  \begin{itemize}
-%    \pause \item Ești manager.
-%    \pause \item Ai nevoie ca echipa pe care o conduci să vină cu soluții creative la o problemă.
-%    \pause \item Le spui că le acorzi un bonus de 25\% dacă vin astfel de soluții.
-%  \end{itemize}
-%  \pause
-%  \begin{center}
-%    Dan Pink: The Suprising Truth About What Motivates Us\\
-%    \vspace{3mm}
-%    \scriptsize
-%    \url{http://www.ted.com/talks/dan_pink_on_motivation?language=en}
-%  \end{center}
-%\end{frame}
 
 \begin{frame}{De ce e mai ușor?}
   \begin{itemize}
@@ -145,14 +128,55 @@ razvan.deaconescu@cs.pub.ro}
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Funcționarea sistemului de calcul}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/functionarea-sistemului-de-calcul.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Bazele limbajului de asamblare}
+  \begin{itemize}
+    \item datele rezidă în memorie
+    \item datele sunt aduse din memorie în registrele procesorului
+    \item procesorul face operații cu datele din registre
+    \item rezultatele operațiilor sunt scrise înapoi în memorie
+    \item unele informații pot fi preluate și transmise către dispozitive de intrare/ieșire
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemple în limbaj de asamblare}
+  \begin{itemize}
+    \item \texttt{asm/hello.asm}
+    \item \texttt{asm/print\_n.asm}
+    \item \texttt{asm/print\_n\_square.asm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Compiler Explorer}
+  \begin{itemize}
+    \item \url{https://gcc.godbolt.org/}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Cum învăț/cum aprofundez}
   \begin{itemize}
     \pause \item Nu învăța ceva ca să înveți ceva / că e bine / că se caută / că vrei să știi.
     \pause \item Pune-ți obiective și învață ca o consecință. \textit{Means to an end}.
-    \item competiții de tip CTF (Capture the Flag)
-    \item site-uri de tip wargames
-    \item profiling la aplicații de tip
-    \item programează pe platforme ARM (sau MIPS): Raspberry Pi
+    \pause \item competiții de tip CTF (Capture the Flag)
+    \pause \item site-uri de tip wargames
+    \pause \item profiling la aplicații
+    \pause \item programează pe platforme ARM (sau MIPS): Raspberry Pi
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{La final}
+  \begin{itemize}
+    \pause \item Învață în profunzime
+    \pause \item Strică lucrurile
+    \pause \item Detaliile fac diferența
+    \pause \item Răbdarea este o virtute
+    \pause \item Laborator de introducere în limbaj de asamblare: joi, 25 august 2016, ora 21:00
   \end{itemize}
 \end{frame}
 
