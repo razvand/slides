@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo perf stat -e cache-misses -e instructions ./walk_matrix_column_major
-sudo perf stat -e cache-misses -e instructions ./walk_matrix_row_major
+sudo perf stat -e cache-misses -e instructions ./walk_matrix_by_column
+sudo perf stat -e cache-misses -e instructions ./walk_matrix_by_row
