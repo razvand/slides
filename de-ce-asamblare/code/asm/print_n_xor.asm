@@ -1,9 +1,11 @@
     extern printf
 
+%define LIMIT   15
+%define OPERAND 0xAA
+
     section .rodata
 
 format: db "%d", 10, 0
-limit: dd 15
 
     section .text
 
@@ -15,11 +17,10 @@ main:
     mov ebp, esp
 
     mov eax, 1
-    mov ebx, [limit]
 
 print_num:
     mov ecx, eax
-    add ecx, 10
+    xor ecx, OPERAND
 
     push eax
     push ecx
@@ -30,7 +31,7 @@ print_num:
     pop eax
 
     inc eax
-    cmp eax, ebx
+    cmp eax, LIMIT
     jbe print_num
 
     ; function epilogue
