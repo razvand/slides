@@ -11,7 +11,8 @@ int main(void)
 
 	for (i = 0; i < NUM_ROWS; i++)
 		for (j = 0; j < NUM_COLUMNS; j++)
-			m[i][j] = i + j + (i ^ j);
+			/* Dumb computation just to prove a point. */
+			m[j][i] = i + j + (i ^ j);
 
 	return 0;
 }
