@@ -59,7 +59,7 @@ razvan.deaconescu@cs.pub.ro}
   \pause funcții apelate (fluxul programului)\\
   \pause \textbf{valori din memorie}\\
   \pause \textbf{valorile registrelor procesorului}\\
-  \pause \textbf{codul în limbaj de asamblare}\\
+  \pause \textbf{codul rulat de procesor}\\
 \end{frame}
 
 \begin{frame}{Dezvoltare low-level}
@@ -70,6 +70,63 @@ razvan.deaconescu@cs.pub.ro}
       \end{itemize}
     \pause \item software de sistem (\textit{system software})
     \pause \item dezvoltare de kernel (\textit{kernel development})
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Înainte de a începe}
+  \centering
+  \pause mai mult citim decât scriem \\
+  \pause ca să scrii povești bune trebuie să citești povești bune \\
+  \pause ca să scrii cod bun trebuie să citești cod bun \\
+  \pause mai mult ca orice, limbajul de asamblare mai mult se citește \\
+  \vspace{1cm}
+  \pause \textbf{Învățăm limbaj de asamblare ca să înțelegem, mult mai rar să scriem.} \\
+  \hfill \textit{R. Deaconescu, 2016, Macea, Arad}
+\end{frame}
+
+\begin{frame}{De ce e mai ușor?}
+  \begin{itemize}
+    \item mașini virtuale
+    \item emulatoare
+    \item documentație
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Funcționarea sistemului de calcul}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/functionarea-sistemului-de-calcul.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Bazele limbajului de asamblare}
+  \begin{itemize}
+    \pause \item datele rezidă în memorie
+    \pause \item datele sunt aduse din memorie în registrele procesorului
+    \pause \item procesorul face operații cu datele din registre
+    \pause \item rezultatele operațiilor sunt scrise înapoi în memorie
+    \pause \item unele informații pot fi preluate și transmise către dispozitive de intrare/ieșire
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operații de asamblare}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/operatii-de-asamblare.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Exemple în limbaj de asamblare}
+  \begin{itemize}
+    \item \texttt{asm/hello.asm}
+    \item \texttt{asm/print\_n.asm}
+    \item \texttt{asm/print\_n\_square.asm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Compiler Explorer}
+  \begin{itemize}
+    \item \url{https://gcc.godbolt.org/}
   \end{itemize}
 \end{frame}
 
@@ -111,63 +168,6 @@ razvan.deaconescu@cs.pub.ro}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Înainte de a începe}
-  \centering
-  \pause mai mult citim decât scriem \\
-  \pause ca să scrii povești bune trebuie să citești povești bune \\
-  \pause ca să scrii cod bun trebuie să citești cod bun \\
-  \pause mai mult ca orice, limbajul de asamblare mai mult se citește \\
-  \vspace{1cm}
-  \pause \textbf{Învățăm limbaj de asamblare ca să înțelegem, mult mai rar să scriem.} \\
-  \hfill \textit{R. Deaconescu, 2016, Macea, Arad}
-\end{frame}
-
-\begin{frame}{De ce e mai ușor?}
-  \begin{itemize}
-    \item mașini virtuale
-    \item emulatoare
-    \item documentație
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Funcționarea sistemului de calcul}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/functionarea-sistemului-de-calcul.pdf}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Bazele limbajului de asamblare}
-  \begin{itemize}
-    \item datele rezidă în memorie
-    \item datele sunt aduse din memorie în registrele procesorului
-    \item procesorul face operații cu datele din registre
-    \item rezultatele operațiilor sunt scrise înapoi în memorie
-    \item unele informații pot fi preluate și transmise către dispozitive de intrare/ieșire
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Operații de asamblare}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/operatii-de-asamblare.pdf}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Exemple în limbaj de asamblare}
-  \begin{itemize}
-    \item \texttt{asm/hello.asm}
-    \item \texttt{asm/print\_n.asm}
-    \item \texttt{asm/print\_n\_square.asm}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Compiler Explorer}
-  \begin{itemize}
-    \item \url{https://gcc.godbolt.org/}
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Cum învăț/cum aprofundez}
   \begin{itemize}
     \pause \item Nu învăța ceva ca să înveți ceva / că e bine / că se caută / că vrei să știi.
@@ -181,10 +181,10 @@ razvan.deaconescu@cs.pub.ro}
 
 \begin{frame}{La final}
   \begin{itemize}
-    \pause \item Învață în profunzime
-    \pause \item Strică lucrurile
-    \pause \item Detaliile fac diferența
-    \pause \item Răbdarea este o virtute
+    \pause \item Învață în profunzime.
+    \pause \item Strică lucrurile.
+    \pause \item Detaliile fac diferența.
+    \pause \item Răbdarea este o virtute.
     \pause \item Laborator de introducere în limbaj de asamblare: joi, 25 august 2016, ora 21:00
   \end{itemize}
 \end{frame}
