@@ -9,7 +9,7 @@ DIA = dia
 INKSCAPE = inkscape
 EPSTOPDF = epstopdf
 
-DIA_FILES = functionarea-sistemului-de-calcul.dia
+DIA_FILES = functionarea-sistemului-de-calcul.dia operatii-de-asamblare.dia
 EPS_FILES = $(DIA_FILES:.dia=.eps) $(SVG_FILES:.svg=.eps)
 PDF_FILES = $(DIA_FILES:.dia=.pdf) $(SVG_FILES:.svg=.pdf)
 PNG_FILES = $(DIA_FILES:.dia=.png) $(SVG_FILES:.svg=.png)
