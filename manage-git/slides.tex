@@ -1,32 +1,4 @@
-% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
-\documentclass{beamer}
-
-\usepackage[utf8x]{inputenc}		% diacritice
-\usepackage[romanian]{babel}
-\usepackage{color}			% highlight
-\usepackage{alltt}			% highlight
-
-% highlight; comment this out in case you don't input code source files
-%\usepackage{code/highlight}		% highlight
-
-\usepackage{hyperref}			% folosiți \url{http://...}
-					% sau \href{http://...}{Nume Link}
-\usepackage{verbatim}
-
-% Show contents at every section beginning. Ripped off from manual.
-\AtBeginSection[] % Do nothing for \section*
-{
-    \begin{frame}<beamer>
-        \frametitle{Outline}
-    \tableofcontents[currentsection]
-        \end{frame}
-}
-
-\mode<presentation>
-{ \usetheme{Berlin} }
-
-% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
-\PreloadUnicodePage{200}
+\documentclass{simple}
 
 \title[Git Repositories]{Gestiunea repository-urilor folosind soluții Git}
 \subtitle{Linux and Open Source}
@@ -35,12 +7,6 @@
 \date{24 februarie 2011}
 
 \begin{document}
-
-% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
-\setbeamertemplate{frametitle continuation}[from second]
-
-% Arătăm numărul frame-ului
-%\setbeamertemplate{footline}[frame number]
 
 \frame{\titlepage}
 
@@ -343,7 +309,7 @@
 
 \begin{frame}{Întrebări}
 	\begin{columns}
-		\begin{column}[l]{0.5\textwidth}
+		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item repository
                 \item URL
@@ -354,7 +320,7 @@
                 \item all is text
 			\end{itemize}
 		\end{column}
-		\begin{column}[l]{0.5\textwidth}
+		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.5\columnwidth]{img/question-mark}

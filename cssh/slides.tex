@@ -1,23 +1,6 @@
-% vim: set tw=78 tabstop=4 shiftwidth=4 aw ai:
-\documentclass{beamer}
+\documentclass{simple}
 
-\usepackage[utf8x]{inputenc}		% diacritice
-\usepackage[romanian]{babel}
-\usepackage{color}			% highlight
-\usepackage{alltt}			% highlight
-
-% highlight; comment this out in case you don't input code source files
-\usepackage{code/highlight}		% highlight
-
-\usepackage{hyperref}			% folosiți \url{http://...}
-					% sau \href{http://...}{Nume Link}
-\usepackage{verbatim}
-
-\mode<presentation>
-{ \usetheme{Berlin} }
-
-% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
-\PreloadUnicodePage{200}
+\usepackage{code/highlight}
 
 \title[Cluster SSH / Parallel SSH]{Cluster SSH / Parallel SSH}
 \subtitle{Lightning talk}
@@ -27,12 +10,6 @@
 \date{16 septembrie 2010}
 
 \begin{document}
-
-% Slide-urile cu mai multe părți sunt marcate cu textul (cont.)
-\setbeamertemplate{frametitle continuation}[from second]
-
-% Arătăm numărul frame-ului
-%\setbeamertemplate{footline}[frame number]
 
 \frame{\titlepage}
 

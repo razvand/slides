@@ -1,5 +1,2 @@
-*.pdf
-*.out
-*.log
-*.aux
+/*.pdf
 /texfiles/

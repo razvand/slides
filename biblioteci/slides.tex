@@ -1,32 +1,4 @@
-\documentclass{beamer}
-
-\usepackage[utf8x]{inputenc}		% diacritice
-\usepackage[romanian]{babel}
-\usepackage{color}			% highlight
-\usepackage{alltt}			% highlight
-
-% highlight; comment this out in case you don't input code source files
-%\usepackage{code/highlight}		% highlight
-
-\usepackage{hyperref}			% folosiți \url{http://...}
-					% sau \href{http://...}{Nume Link}
-\usepackage{verbatim}
-
-% Show contents at every section beginning. Ripped off from manual.
-\AtBeginSection[] % Do nothing for \section*
-{
-  \begin{frame}<beamer>
-    \frametitle{Outline}
-  \tableofcontents[currentsection]
-    \end{frame}
-}
-
-
-\mode<presentation>
-{ \usetheme{Berlin} }
-
-% Încărcăm simbolurilor Unicode românești în titlu și primele pagini
-\PrerenderUnicode{aâîțșĂÎÂȚȘ}
+\documentclass{simple}
 
 \title[Biblioteci]{Biblioteci. Gestiunea bibliotecilor}
 \institute{Întâlnirile lunare RLUG -- Iulie 2011}
@@ -310,7 +282,7 @@
 
 \begin{frame}{Keywords}
   \begin{columns}
-    \begin{column}[l]{0.5\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{itemize}
         \item fișiere obiect
         \item biblioteci
@@ -322,7 +294,7 @@
         \item loader
       \end{itemize}
     \end{column}
-    \begin{column}[l]{0.5\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{itemize}
         \item \texttt{ld.so}
         \item run-time
