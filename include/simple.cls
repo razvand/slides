@@ -49,9 +49,9 @@
 
 % Romanian Language support
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}
+%\usepackage[utf8x]{inputenc}
 \PrerenderUnicode{aâîțșĂÎÂȚȘ}
-\usepackage[english,romanian]{babel}
+\usepackage[english]{babel}
 
 \usepackage{hyperref}   % use \url{http://$URL} or \href{http://$URL}{Name}
 \usepackage{underscore} % underscores need not be escaped
